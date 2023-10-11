@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 public class Usuarios{
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     private String nombre;
     private String email;
@@ -16,13 +16,21 @@ public class Usuarios{
 
     public Usuarios() {
     }
-    public  Usuarios(Long id, String nombre, String email, String dni, Integer telefono, String rol) {
+    public  Usuarios(Integer id, String nombre, String email, String dni, Integer telefono, String rol) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.dni = dni;
         this.telefono = telefono;
         this.rol = rol;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
     public Usuarios(String nombre, String email, String dni, Integer telefono, String rol) {
         this.nombre = nombre;
