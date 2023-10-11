@@ -1,4 +1,4 @@
 package parking.apiControllers;
 
-public class raul {
+public class ParkingController {
 }
