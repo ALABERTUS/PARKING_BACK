@@ -78,6 +78,4 @@ public class Usuarios{
                 ", rol='" + rol + '\'' +
                 '}';
     }
-
-
 }
