@@ -1,11 +1,13 @@
 package parking.domain.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 public class Usuarios{
     @Id
     @GeneratedValue
+    @Column(name="usuario_id")
     private Long id;
 
     private String nombre;
