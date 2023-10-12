@@ -1,50 +1,56 @@
 package parking.domain.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Plazas")
+
 public class Plazas {
-    private int idPlaza;
-    private int numeroPlaza;
-    private int numeroSotano;
-    private String propietario;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private int numeroPlazas;
+
+    private int sotano;
+
     private boolean disponible;
 
-    public Plazas(int idPlaza, int numeroPlaza, int numeroSotano, String propietario, boolean disponible) {
-        this.idPlaza = idPlaza;
-        this.numeroPlaza = numeroPlaza;
-        this.numeroSotano = numeroSotano;
-        this.propietario = propietario;
+    private String propietario;
+
+    public Plazas(Long id, int numeroPlazas, int sotano, boolean disponible, String propietario) {
+        this.id = id;
+        this.numeroPlazas = numeroPlazas;
+        this.sotano = sotano;
         this.disponible = disponible;
-    }
-
-    public int getIdPlaza() {
-        return idPlaza;
-    }
-
-    public void setIdPlaza(int idPlaza) {
-        this.idPlaza = idPlaza;
-    }
-
-    public int getNumeroPlaza() {
-        return numeroPlaza;
-    }
-
-    public void setNumeroPlaza(int numeroPlaza) {
-        this.numeroPlaza = numeroPlaza;
-    }
-
-    public int getNumeroSotano() {
-        return numeroSotano;
-    }
-
-    public void setNumeroSotano(int numeroSotano) {
-        this.numeroSotano = numeroSotano;
-    }
-
-    public String getPropietario() {
-        return propietario;
-    }
-
-    public void setPropietario(String propietario) {
         this.propietario = propietario;
+    }
+
+    public Plazas() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getNumeroPlazas() {
+        return numeroPlazas;
+    }
+
+    public void setNumeroPlazas(int numeroPlazas) {
+        this.numeroPlazas = numeroPlazas;
+    }
+
+    public int getSotano() {
+        return sotano;
+    }
+
+    public void setSotano(int sotano) {
+        this.sotano = sotano;
     }
 
     public boolean isDisponible() {
@@ -55,13 +61,11 @@ public class Plazas {
         this.disponible = disponible;
     }
 
-    public String toString() {
-        return "Plaza{" +
-                "idPlaza=" + idPlaza +
-                ", numeroPlaza=" + numeroPlaza +
-                ", numeroSotano=" + numeroSotano +
-                ", propietario='" + propietario + '\'' +
-                ", disponible=" + disponible +
-                '}';
+    public String getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(String propietario) {
+        this.propietario = propietario;
     }
 }

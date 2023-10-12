@@ -1,4 +1,4 @@
 package parking.domain.services;
 
-public class Plazas {
+public class EstadoPlazasServices {
 }
