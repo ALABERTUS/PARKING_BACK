@@ -1,12 +1,17 @@
 package parking.domain.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "usuarios")
 public class Usuarios {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nombre;
     private String email;
@@ -17,15 +22,6 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public Usuarios(Integer id, String nombre, String email, String dni, Integer telefono, String rol) {
-        this.id = id;
-        this.nombre = nombre;
-        this.email = email;
-        this.dni = dni;
-        this.telefono = telefono;
-        this.rol = rol;
-    }
-
     public Usuarios(String nombre, String email, String dni, Integer telefono, String rol) {
         this.nombre = nombre;
         this.email = email;
@@ -34,11 +30,11 @@ public class Usuarios {
         this.rol = rol;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -82,10 +78,11 @@ public class Usuarios {
         this.rol = rol;
     }
 
+    @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id + '\'' +
-                "nombre='" + nombre + '\'' +
+        return "Usuarios{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
                 ", dni='" + dni + '\'' +
                 ", telefono=" + telefono +

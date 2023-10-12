@@ -1,82 +1,63 @@
 package parking.domain.services;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import parking.domain.models.Usuarios;
-import java.util.ArrayList;
+
 import java.util.List;
 
-
-
-
 public class UsuariosServices {
-    private List<Usuarios> usuariosList = new ArrayList<>();
-    private Integer idGenerator = 1;
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ParkingPU");
 
+    @Transactional
     public void crearUsuario(Usuarios usuario) {
-        usuario.setId(idGenerator++);
-        usuariosList.add(usuario);
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(usuario);
+        em.getTransaction().commit();
+        em.close();
     }
 
-    public Usuarios obtenerUsuarioPorId(Integer id) {
-        for (Usuarios usuario : usuariosList) {
-            if (usuario.getId().equals(id)) {
-                return usuario;
-            }
-        }
-        return null;
+    public Usuarios obtenerUsuarioPorId(Long id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        Usuarios usuario = em.find(Usuarios.class, id);
+        em.close();
+        return usuario;
     }
 
+    @Transactional
     public void actualizarUsuario(Usuarios usuarioActualizado) {
-        for (Usuarios usuario : usuariosList) {
-            Integer idUsuario = usuario.getId();
-            if (idUsuario != null && idUsuario.equals(usuarioActualizado.getId())) {
-                usuario.setNombre(usuarioActualizado.getNombre());
-                usuario.setEmail(usuarioActualizado.getEmail());
-                usuario.setDni(usuarioActualizado.getDni());
-                usuario.setTelefono(usuarioActualizado.getTelefono());
-                usuario.setRol(usuarioActualizado.getRol());
-                return;
-            }
-        }
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(usuarioActualizado);
+        em.getTransaction().commit();
+        em.close();
     }
 
-    public void eliminarUsuario(Integer id) {
-        usuariosList.removeIf(usuarios -> usuarios.getId().equals(id));
+    @Transactional
+    public void eliminarUsuario(Long id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        em.getTransaction().begin();
+        Usuarios usuario = em.find(Usuarios.class, id);
+        if (usuario != null) {
+            em.remove(usuario);
+        }
+        em.getTransaction().commit();
+        em.close();
     }
 
     public List<Usuarios> obtenerTodosLosUsuarios() {
-        return usuariosList;
-    }
-
-    public static void main(String[] args) {
-        UsuariosServices usuariosServices = new UsuariosServices();
-
-        // Crear un usuario
-        Usuarios usuario1 = new Usuarios("Usuario 1", "usuario1@example.com", "12345678X", 123456789, "Rol 1");
-        usuariosServices.crearUsuario(usuario1);
-
-        // Obtener y mostrar el usuario
-        Usuarios usuarioRecuperado = usuariosServices.obtenerUsuarioPorId(1);
-        System.out.println(usuarioRecuperado);
-
-        // Actualizar el usuario
-        Usuarios usuarioActualizado = new Usuarios(1, "Nuevo Nombre", "nuevo@email.com", "87654321X", 987654321, "Nuevo Rol");
-        usuariosServices.actualizarUsuario(usuarioActualizado);
-
-        // Obtener y mostrar el usuario actualizado
-        Usuarios usuarioActualizadoRecuperado = usuariosServices.obtenerUsuarioPorId(1);
-        System.out.println(usuarioActualizadoRecuperado);
-
-        // Eliminar el usuario
-        usuariosServices.eliminarUsuario(1);
-
-        // Intentar obtener el usuario eliminado (debería ser nulo)
-        Usuarios usuarioEliminado = usuariosServices.obtenerUsuarioPorId(1);
-        System.out.println(usuarioEliminado);
-
-        // Obtener y mostrar todos los usuarios
-        List<Usuarios> todosLosUsuarios = usuariosServices.obtenerTodosLosUsuarios();
-        todosLosUsuarios.forEach(System.out::println);
+        EntityManager em = entityManagerFactory.createEntityManager();
+        TypedQuery<Usuarios> query = em.createQuery("SELECT u FROM Usuarios u", Usuarios.class);
+        List<Usuarios> usuarios = query.getResultList();
+        em.close();
+        return usuarios;
     }
 }
+
+
 
 
