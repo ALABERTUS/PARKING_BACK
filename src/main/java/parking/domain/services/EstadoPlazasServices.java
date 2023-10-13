@@ -2,10 +2,12 @@
 
 package parking.domain.services;
 
+import org.springframework.stereotype.Service;
 import parking.domain.models.EstadoPlazas;
 
 import java.util.ArrayList;
 import java.util.List;
+@Service
 
 public class EstadoPlazasServices {
     private List<EstadoPlazas> estadoPlazasList = new ArrayList<>();
