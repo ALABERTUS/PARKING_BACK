@@ -1,11 +1,11 @@
 package parking.domain.models;
 
-public class PazasEstados {
+public class PlazasEstados {
     private Integer id;
     private Plazas plaza;
     private EstadoPlaza estado;
 
-    public PazasEstados(Integer id, Plazas plaza, EstadoPlaza estado) {
+    public PlazasEstados(Integer id, Plazas plaza, EstadoPlaza estado) {
         this.id = id;
         this.plaza = plaza;
         this.estado = estado;

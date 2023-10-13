@@ -1,7 +1,7 @@
 package parking.domain.models;
 import java.util.Date;
 
-public class EstadoPlazas {
+public class EstadoPlaza {
     private Integer id;
     private boolean disponible;
     private boolean ocupada;
@@ -9,10 +9,10 @@ public class EstadoPlazas {
     private int numeroSotano;
     private int numeroPlaza;
 
-    public EstadoPlazas() {
+    public EstadoPlaza() {
     }
 
-    public EstadoPlazas(boolean disponible, boolean ocupada, Date fecha, int numeroSotano, int numeroPlaza) {
+    public EstadoPlaza(boolean disponible, boolean ocupada, Date fecha, int numeroSotano, int numeroPlaza) {
         this.disponible = disponible;
         this.ocupada = ocupada;
         this.fecha = fecha;
@@ -69,7 +69,7 @@ public class EstadoPlazas {
     }
 
         public static void main(String[] args) {
-            EstadoPlazas plaza1 = new EstadoPlazas(true, false, new Date(), 1, 101);
-            EstadoPlazas plaza2 = new EstadoPlazas(false, true, new Date(), 1, 102);
+            EstadoPlaza plaza1 = new EstadoPlaza(true, false, new Date(), 1, 101);
+            EstadoPlaza plaza2 = new EstadoPlaza(false, true, new Date(), 1, 102);
         }
 }
