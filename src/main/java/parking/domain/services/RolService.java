@@ -1,10 +1,12 @@
 package parking.domain.services;
-import parking.domain.models.Rol;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import parking.domain.models.Rol;
+
+import java.util.List;
 
 @Service
 public class RolService {
@@ -33,4 +35,10 @@ public class RolService {
             entityManager.remove(rol);
         }
     }
+
+    @Transactional
+    public List<Rol> obtenerTodosLosRoles() {
+                return entityManager.createQuery("SELECT r FROM Rol r", Rol.class).getResultList();
+    }
 }
+

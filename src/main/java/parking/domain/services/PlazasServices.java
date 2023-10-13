@@ -1,22 +1,22 @@
 package parking.domain.services;
-
+import org.springframework.stereotype.Service;
 import parking.domain.models.Plazas;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class PlazasServices {
     private List<Plazas> plazasList = new ArrayList<>();
-    private int idGenerator = 1;
+    private long idGenerator = 1;
 
     public void crearPlaza(Plazas plaza) {
-        plaza.setId((long) idGenerator++);
+        plaza.setId(idGenerator++);
         plazasList.add(plaza);
     }
 
-    public Plazas obtenerPlazaPorId(int idPlaza) {
+    public Plazas obtenerPlazaPorId(Long idPlaza) {
         for (Plazas plaza : plazasList) {
-            if (plaza.getId() == idPlaza) {
+            if (plaza.getId().equals(idPlaza)) {
                 return plaza;
             }
         }
@@ -25,7 +25,7 @@ public class PlazasServices {
 
     public void actualizarPlaza(Plazas plazaActualizada) {
         for (Plazas plaza : plazasList) {
-            if (plaza.getId() == plazaActualizada.getId()) {
+            if (plaza.getId().equals(plazaActualizada.getId())) {
                 plaza.setNumeroPlazas(plazaActualizada.getNumeroPlazas());
                 plaza.setSotano(plazaActualizada.getSotano());
                 plaza.setPropietario(plazaActualizada.getPropietario());
@@ -34,8 +34,8 @@ public class PlazasServices {
         }
     }
 
-    public void eliminarPlaza(int idPlaza) {
-        plazasList.removeIf(plaza -> plaza.getId() == idPlaza);
+    public void eliminarPlaza(Long idPlaza) {
+        plazasList.removeIf(plaza -> plaza.getId().equals(idPlaza));
     }
 
     public List<Plazas> obtenerTodasLasPlazas() {

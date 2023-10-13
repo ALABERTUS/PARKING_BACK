@@ -10,6 +10,7 @@ import parking.domain.models.Usuarios;
 
 import java.util.List;
 
+
 public class UsuariosServices {
     private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ParkingPU");
 

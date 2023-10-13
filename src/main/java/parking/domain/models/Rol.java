@@ -11,7 +11,6 @@ public class Rol {
     private Integer id;
     private String nombreRol;
 
-    // Getters y setters
 
     public Integer getId() {
         return id;
