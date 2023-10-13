@@ -1,11 +1,13 @@
 package parking.domain.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
+@Entity
 public class Usuarios {
     @Id
     @GeneratedValue
+
     private Integer id;
 
     private String nombre;
