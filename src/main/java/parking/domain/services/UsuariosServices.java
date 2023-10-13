@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
+
 import parking.domain.models.Usuarios;
 
 import java.util.List;
