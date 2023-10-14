@@ -7,7 +7,7 @@ import parking.domain.models.SolicitudesReservas;
 import parking.domain.services.SolicitudesReservasService;
 
 @RestController
-@RequestMapping("/solicitudesreservas")
+@RequestMapping("/solicitudes-reservas")
 public class SolicitudesReservasController {
 
     private final SolicitudesReservasService solicitudesReservasService;

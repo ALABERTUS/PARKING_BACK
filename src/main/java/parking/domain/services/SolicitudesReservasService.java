@@ -13,16 +13,19 @@ public class SolicitudesReservasService {
 
     @Transactional
     public void crearSolicitudReserva(SolicitudesReservas solicitudReserva) {
+        // Validación de entrada (puedes agregar validaciones aquí)
         entityManager.persist(solicitudReserva);
     }
 
     @Transactional
     public SolicitudesReservas obtenerSolicitudReservaPorId(Long id) {
+        // Puedes manejar excepciones aquí si la solicitud no existe
         return entityManager.find(SolicitudesReservas.class, id);
     }
 
     @Transactional
     public void actualizarSolicitudReserva(SolicitudesReservas solicitudReserva) {
+        // Puedes manejar excepciones aquí si la solicitud no existe
         entityManager.merge(solicitudReserva);
     }
 
@@ -32,5 +35,6 @@ public class SolicitudesReservasService {
         if (solicitudReserva != null) {
             entityManager.remove(solicitudReserva);
         }
+        // Puedes manejar excepciones aquí si la solicitud no existe
     }
 }

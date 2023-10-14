@@ -14,6 +14,7 @@ public class SolicitudesReservas {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date fecha;
+
     @OneToOne
     @JoinColumn(name = "usuario_id")
     private Usuarios usuario;
