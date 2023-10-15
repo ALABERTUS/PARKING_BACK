@@ -80,4 +80,16 @@ public class SolicitudesReservas {
     public void setEstadoSolicitud(String estadoSolicitud) {
         this.estadoSolicitud = estadoSolicitud;
     }
+
+    @Override
+    public String toString() {
+        return "SolicitudesReservas{" +
+                "id=" + id +
+                ", usuario=" + usuario +
+                ", plaza=" + plaza +
+                ", sotano=" + sotano +
+                ", fecha=" + fecha +
+                ", estadoSolicitud='" + estadoSolicitud + '\'' +
+                '}';
+    }
 }
