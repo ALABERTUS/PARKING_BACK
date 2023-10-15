@@ -3,7 +3,7 @@ package parking.domain.models;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-public class Usuario {
+public class UsuarioAl {
     @Id
     @GeneratedValue
     private Long id;
@@ -14,9 +14,9 @@ public class Usuario {
     private Integer telefono;
     private String rol;
 
-    public Usuario() {
+    public UsuarioAl() {
     }
-    public Usuario(Long id, String nombre, String email, String dni, Integer telefono, String rol) {
+    public UsuarioAl(Long id, String nombre, String email, String dni, Integer telefono, String rol) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
@@ -24,7 +24,7 @@ public class Usuario {
         this.telefono = telefono;
         this.rol = rol;
     }
-    public Usuario(String nombre, String email, String dni, Integer telefono, String rol) {
+    public UsuarioAl(String nombre, String email, String dni, Integer telefono, String rol) {
         this.nombre = nombre;
         this.email = email;
         this.dni = dni;
