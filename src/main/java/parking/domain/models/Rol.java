@@ -7,8 +7,8 @@ public class Rol {
     public Rol() {
     }
 
-    public Rol(String nombreRol) {
-        this.nombreRol = nombreRol;
+    public Rol(int id, String nombreRol) {
+        this.id = id; this.nombreRol = nombreRol;
     }
 
     public Integer getId() {
