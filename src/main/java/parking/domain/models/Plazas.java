@@ -1,16 +1,26 @@
 package parking.domain.models;
 
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Plazas {
+    @Id
+    @GeneratedValue
     private int idPlaza;
     private int numeroPlaza;
-    private int numeroSotano;
+
+    @ManyToOne
+    private Sotanos sotano;
     private String propietario;
     private boolean disponible;
 
-    public Plazas(int idPlaza, int numeroPlaza, int numeroSotano, String propietario, boolean disponible) {
+    public Plazas(int idPlaza, int numeroPlaza, Sotanos sotano, String propietario, boolean disponible) {
         this.idPlaza = idPlaza;
         this.numeroPlaza = numeroPlaza;
-        this.numeroSotano = numeroSotano;
+        this.sotano = sotano;
         this.propietario = propietario;
         this.disponible = disponible;
     }
@@ -31,13 +41,9 @@ public class Plazas {
         this.numeroPlaza = numeroPlaza;
     }
 
-    public int getNumeroSotano() {
-        return numeroSotano;
-    }
+    public Sotanos getSotano() { return sotano; }
 
-    public void setNumeroSotano(int numeroSotano) {
-        this.numeroSotano = numeroSotano;
-    }
+    public void setSotano(Sotanos sotano) { this.sotano = sotano; }
 
     public String getPropietario() {
         return propietario;
@@ -59,7 +65,7 @@ public class Plazas {
         return "Plaza{" +
                 "idPlaza=" + idPlaza +
                 ", numeroPlaza=" + numeroPlaza +
-                ", numeroSotano=" + numeroSotano +
+                ", sotano=" + sotano.getNumeroSotano() +
                 ", propietario='" + propietario + '\'' +
                 ", disponible=" + disponible +
                 '}';

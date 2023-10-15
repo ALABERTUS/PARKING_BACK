@@ -1,57 +1,40 @@
 package parking.domain.services;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.transaction.annotation.Transactional;
 import parking.domain.models.Plazas;
+import parking.domain.models.Sotanos;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlazasServices {
-    private List<Plazas> plazasList;
-
-    public PlazasServices() {
-        plazasList = new ArrayList<>();
-    }
-    public void crearPlaza(int numeroPlaza, int numeroSotano, String propietario, boolean disponible) {
-        int newId = plazasList.size() + 1;
-        Plazas plaza = new Plazas(newId, numeroPlaza, numeroSotano, propietario, disponible);
-        plazasList.add(plaza);
-    }
-
-    public Plazas obtenerPlaza(int idPlaza) {
-        for (Plazas plaza : plazasList) {
-            if (plaza.getIdPlaza() == idPlaza) {
-                return plaza;
-            }
-        }
-        return null;
-    }
-
-    public void actualizarPlaza(Plazas actualizarplaza) {
-        for (Plazas plaza : plazasList) {
-            if (plaza.getIdPlaza() == actualizarplaza.getIdPlaza()) {
-               plaza.setNumeroPlaza(actualizarplaza.getNumeroPlaza());
-               plaza.setNumeroSotano(actualizarplaza.getNumeroSotano());
-               plaza.setPropietario(actualizarplaza.getPropietario());
-               plaza.setDisponible(actualizarplaza.isDisponible());
-               break;
-            }
-        }
-    }
-
-    public void eliminarPlaza(int idPlaza) {
-        Plazas plazaToEliminar = null;
-        for (Plazas plaza : plazasList) {
-            if (plaza.getIdPlaza() == idPlaza) {
-                plazaToEliminar = plaza;
-                break;
-            }
-        }
-       if (plazaToEliminar != null) {
-           plazasList.remove(plazaToEliminar);
-       }
-    }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public List<Plazas> listarPlazas() {
-        return plazasList;
+        return entityManager.createQuery("SELECT p FROM Plazas p", Plazas.class).getResultList();
+    }
+
+    public Plazas obtenerPlazas(int idPlaza) {
+        return entityManager.find(Plazas.class, idPlaza);
+    }
+
+    @Transactional
+    public void crearPlaza(Plazas plaza) {
+        entityManager.merge(plaza);
+    }
+
+    @Transactional
+    public void actualizarPlaza(Plazas plaza) {
+        entityManager.merge(plaza);
+    }
+
+    @Transactional
+    public void eliminarPlaza(int idPlaza) {
+        Plazas plaza = entityManager.find(Plazas.class, idPlaza);
+        entityManager.remove(plaza);
     }
 }
 
