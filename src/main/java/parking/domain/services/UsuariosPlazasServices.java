@@ -4,8 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import org.springframework.stereotype.Service;
 import parking.domain.models.UsuariosPlazas;
 
+@Service
 public class UsuariosPlazasServices {
     private final EntityManagerFactory emf;
 

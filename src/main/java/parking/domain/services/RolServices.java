@@ -1,9 +1,11 @@
 package parking.domain.services;
 
+import org.springframework.stereotype.Service;
 import parking.domain.models.Rol;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RolServices {
     private List<Rol> roles;
 

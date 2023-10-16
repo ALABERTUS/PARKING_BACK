@@ -2,6 +2,7 @@ package parking.domain.services;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import parking.domain.models.Plazas;
 import parking.domain.models.Sotanos;
@@ -9,6 +10,7 @@ import parking.domain.models.Sotanos;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class PlazasServices {
     @PersistenceContext
     private EntityManager entityManager;

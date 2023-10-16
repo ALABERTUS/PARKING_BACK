@@ -1,10 +1,12 @@
 package parking.domain.services;
 
+import org.springframework.stereotype.Service;
 import parking.domain.models.Usuarios;
 import parking.domain.models.Rol;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UsuariosDAO {
     private List<Usuarios> usuarios = new ArrayList<>();
     private Integer usuarioId = 1;
