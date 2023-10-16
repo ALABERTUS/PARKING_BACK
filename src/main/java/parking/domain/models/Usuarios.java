@@ -3,6 +3,10 @@ package parking.domain.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
 @Entity
 public class Usuarios {
     @Id
@@ -79,6 +83,9 @@ public class Usuarios {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
+
+    @OneToMany(mappedBy = "usuario")
+    private List<UsuariosPlazas> usuariosPlazas;
 
     public String toString(){
         return "Usuario{" +

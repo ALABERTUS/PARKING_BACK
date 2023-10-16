@@ -10,10 +10,10 @@ import parking.domain.models.SolicitudesReservas;
 import java.util.List;
 
 @Service
-public class SolicitudesServices {
+public class SolicitudesReservasServices {
     private final EntityManagerFactory emf;
 
-    public SolicitudesServices() {
+    public SolicitudesReservasServices() {
         emf = Persistence.createEntityManagerFactory("parking");
     }
 

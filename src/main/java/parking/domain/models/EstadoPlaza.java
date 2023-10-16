@@ -1,7 +1,16 @@
 package parking.domain.models;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.List;
+
 import java.util.Date;
 
+@Entity
 public class EstadoPlaza {
+    @Id
+    @GeneratedValue
     private Integer id;
     private boolean disponible;
     private boolean ocupada;
@@ -9,8 +18,8 @@ public class EstadoPlaza {
     private int numeroSotano;
     private int numeroPlaza;
 
-    public EstadoPlaza() {
-    }
+    @OneToMany(mappedBy = "estado")
+  private List<PlazasEstados> plazasEstados;
 
     public EstadoPlaza(boolean disponible, boolean ocupada, Date fecha, int numeroSotano, int numeroPlaza) {
         this.disponible = disponible;

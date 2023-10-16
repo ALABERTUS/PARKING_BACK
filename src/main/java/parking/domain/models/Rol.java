@@ -1,14 +1,21 @@
 package parking.domain.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Rol {
+    @Id
+    @GeneratedValue
     private Integer id;
     private String nombreRol;
 
     public Rol() {
     }
 
-    public Rol(int id, String nombreRol) {
-        this.id = id; this.nombreRol = nombreRol;
+    public Rol(String nombreRol) {
+        this.nombreRol = nombreRol;
     }
 
     public Integer getId() {
@@ -29,9 +36,9 @@ public class Rol {
 
     @Override
     public String toString() {
-        return "RolUsuario{" +
+        return "Rol{" +
                 "id=" + id +
-                ", rol='" + nombreRol + '\'' +
+                ", nombrerol='" + nombreRol + '\'' +
                 '}';
     }
 }

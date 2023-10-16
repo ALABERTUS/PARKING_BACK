@@ -1,8 +1,20 @@
 package parking.domain.models;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class PlazasEstados {
+    @Id
+    @GeneratedValue
     private Integer id;
+
+    @ManyToOne
     private Plazas plaza;
+
+    @ManyToOne
     private EstadoPlaza estado;
 
     public PlazasEstados(Integer id, Plazas plaza, EstadoPlaza estado) {

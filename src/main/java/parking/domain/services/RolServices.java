@@ -14,8 +14,7 @@ public class RolServices {
     }
 
     public void crearRol(String nombreRol) {
-        int newId = roles.size() + 1;
-        Rol rol = new Rol (newId, nombreRol);
+        Rol rol = new Rol (nombreRol);
         roles.add(rol);
     }
 

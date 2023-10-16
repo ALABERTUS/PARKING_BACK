@@ -1,14 +1,15 @@
 package parking.domain.models;
 
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import java.util.List;
+import jakarta.persistence.*;
 
 @Entity
 public class Plazas {
     @Id
     @GeneratedValue
+    public int getId() {
+        return idPlaza;
+    }
     private int idPlaza;
     private int numeroPlaza;
 
@@ -16,6 +17,9 @@ public class Plazas {
     private Sotanos sotano;
     private String propietario;
     private boolean disponible;
+
+    @OneToMany(mappedBy = "plaza")
+    private List<PlazasEstados> plazasEstados;
 
     public Plazas(int idPlaza, int numeroPlaza, Sotanos sotano, String propietario, boolean disponible) {
         this.idPlaza = idPlaza;
@@ -60,6 +64,9 @@ public class Plazas {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    @OneToMany(mappedBy = "plaza")
+    private List<UsuariosPlazas> usuariosPlazas;
 
     public String toString() {
         return "Plaza{" +
