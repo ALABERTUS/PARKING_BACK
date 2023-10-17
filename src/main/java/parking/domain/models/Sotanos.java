@@ -7,11 +7,11 @@ import jakarta.persistence.*;
 public class Sotanos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; // Cambio de Long a Integer
+    private Integer id;
     private int numeroSotano;
     private int numeroPlaza;
 
-    public Sotanos(Integer id, int numeroSotano, int numeroPlaza) { // Cambio de Long a Integer
+    public Sotanos(Integer id, int numeroSotano, int numeroPlaza) {
         this.id = id;
         this.numeroSotano = numeroSotano;
         this.numeroPlaza = numeroPlaza;

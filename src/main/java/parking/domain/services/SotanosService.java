@@ -17,7 +17,7 @@ public class SotanosService {
     }
 
     @Transactional
-    public Sotanos obtenerSotanoPorId(Integer id) { // Cambio de Long a Integer
+    public Sotanos obtenerSotanoPorId(Integer id) {
         return entityManager.find(Sotanos.class, id);
     }
 
@@ -27,7 +27,7 @@ public class SotanosService {
     }
 
     @Transactional
-    public void eliminarSotano(Integer id) { // Cambio de Long a Integer
+    public void eliminarSotano(Integer id) {
         Sotanos sotano = obtenerSotanoPorId(id);
         if (sotano != null) {
             entityManager.remove(sotano);

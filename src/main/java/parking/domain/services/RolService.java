@@ -29,7 +29,7 @@ public class RolService {
     }
 
     @Transactional
-    public void eliminarRol(Integer id) { // Cambio de Long a Integer
+    public void eliminarRol(Integer id) {
         Rol rol = obtenerRolPorId(id);
         if (rol != null) {
             entityManager.remove(rol);

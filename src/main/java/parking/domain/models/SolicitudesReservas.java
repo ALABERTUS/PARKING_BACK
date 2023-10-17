@@ -9,7 +9,7 @@ import java.util.Date;
 public class SolicitudesReservas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; // Cambio de Long a Integer
+    private Integer id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date fecha;

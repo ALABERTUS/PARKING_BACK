@@ -9,14 +9,14 @@ import java.util.List;
 @Service
 public class PlazasServices {
     private List<Plazas> plazasList = new ArrayList<>();
-    private int idGenerator = 1; // Tipo de dato Integer
+    private int idGenerator = 1;
 
     public void crearPlaza(Plazas plaza) {
         plaza.setId(idGenerator++);
         plazasList.add(plaza);
     }
 
-    public Plazas obtenerPlazaPorId(Integer idPlaza) { // Tipo de dato Integer
+    public Plazas obtenerPlazaPorId(Integer idPlaza) {
         for (Plazas plaza : plazasList) {
             if (plaza.getId().equals(idPlaza)) {
                 return plaza;
@@ -25,7 +25,7 @@ public class PlazasServices {
         return null;
     }
 
-    public void actualizarPlaza(Integer idPlaza, Plazas plazaActualizada) { // Tipo de dato Integer
+    public void actualizarPlaza(Integer idPlaza, Plazas plazaActualizada) {
         for (Plazas plaza : plazasList) {
             if (plaza.getId().equals(idPlaza)) {
                 plaza.setNumeroPlazas(plazaActualizada.getNumeroPlazas());

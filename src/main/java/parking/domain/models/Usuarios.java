@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id; // Cambio de Long a Integer
+    private Integer id;
 
     private String nombre;
     private String email;

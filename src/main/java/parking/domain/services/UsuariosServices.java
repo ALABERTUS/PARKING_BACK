@@ -28,7 +28,7 @@ public class UsuariosServices {
     }
 
     @Transactional
-    public void eliminarUsuario(Integer id) { // Cambio de Long a Integer
+    public void eliminarUsuario(Integer id) {
         Usuarios usuario = obtenerUsuarioPorId(id);
         if (usuario != null) {
             entityManager.remove(usuario);

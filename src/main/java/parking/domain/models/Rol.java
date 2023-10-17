@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 @Table(name = "roles")
 public class Rol {
     @Id
-    private Integer id; // Cambio de Long a Integer
+    private Integer id;
     private String nombreRol;
 
     public Integer getId() {
