@@ -3,43 +3,39 @@ package parking.apiControllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import parking.domain.models.Sotanos;
-import parking.domain.services.SotanosServices;
-
-import java.util.List;
+import parking.infraRepositories.SotanosRepository;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/sotanos")
+@RequestMapping("/sotanos")
 public class SotanosController {
 
-    private final SotanosServices sotanosServices;
-
     @Autowired
-    public SotanosController(SotanosServices sotanosServices) {
-        this.sotanosServices = sotanosServices;
-    }
+    private SotanosRepository sotanosRepository;
 
-    @GetMapping
-    public List<Sotanos> listarSotanos() {
-        return sotanosServices.listarSotanos();
+    @PostMapping
+    public Sotanos createSotano(@RequestBody Sotanos sotano) {
+        return sotanosRepository.save(sotano);
     }
 
     @GetMapping("/{id}")
-    public Sotanos obtenerSotano(@PathVariable Integer id) {
-        return sotanosServices.obtenerSotanoPorId(id);
+    public Optional<Sotanos> getSotanoById(@PathVariable Integer id) {
+        return sotanosRepository.findById(id);
     }
 
-    @PostMapping
-    public Sotanos crearSotano(@RequestBody Sotanos sotano) {
-        return sotanosServices.crearSotano(sotano);
+    @GetMapping
+    public Iterable<Sotanos> getAllSotanos() {
+        return sotanosRepository.findAll();
     }
 
     @PutMapping("/{id}")
-    public Sotanos actualizarSotano(@PathVariable Integer id, @RequestBody Sotanos sotanoActualizado) {
-        return sotanosServices.actualizarSotano(id, sotanoActualizado);
+    public Sotanos updateSotano(@PathVariable Integer id, @RequestBody Sotanos sotano) {
+        sotano.setIdSotano(id);
+        return sotanosRepository.save(sotano);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarSotano(@PathVariable Integer id) {
-        sotanosServices.eliminarSotano(id);
+    public void deleteSotano(@PathVariable Integer id) {
+        sotanosRepository.deleteById(id);
     }
 }

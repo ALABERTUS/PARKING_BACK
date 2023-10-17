@@ -73,7 +73,7 @@ public class Plazas {
         return "Plazas{" +
                 "idPlaza=" + idPlaza +
                 ", numeroPlaza=" + numeroPlaza +
-                ", sotano=" + sotano.getNumeroSotano() +
+                ", sotano=" + sotano +
                 ", propietario='" + propietario + '\'' +
                 ", disponible=" + disponible +
                 ", plazasEstados=" + plazasEstados +
