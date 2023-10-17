@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table (name = "usuarios_plazas")
+@Table(name = "usuarios_plazas")
 public class UsuariosPlazas {
     @Id
     @GeneratedValue
@@ -60,3 +60,4 @@ public class UsuariosPlazas {
         this.fecha = fecha;
     }
 }
+

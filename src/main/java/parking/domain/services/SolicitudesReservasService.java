@@ -18,7 +18,7 @@ public class SolicitudesReservasService {
     }
 
     @Transactional
-    public SolicitudesReservas obtenerSolicitudReservaPorId(Long id) {
+    public SolicitudesReservas obtenerSolicitudReservaPorId(Integer id) { // Cambio de Long a Integer
         // Puedes manejar excepciones aquí si la solicitud no existe
         return entityManager.find(SolicitudesReservas.class, id);
     }
@@ -30,7 +30,7 @@ public class SolicitudesReservasService {
     }
 
     @Transactional
-    public void eliminarSolicitudReserva(Long id) {
+    public void eliminarSolicitudReserva(Integer id) { // Cambio de Long a Integer
         SolicitudesReservas solicitudReserva = obtenerSolicitudReservaPorId(id);
         if (solicitudReserva != null) {
             entityManager.remove(solicitudReserva);

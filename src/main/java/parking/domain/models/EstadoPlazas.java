@@ -10,7 +10,7 @@ import java.util.Date;
 public class EstadoPlazas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private boolean libre;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -18,22 +18,14 @@ public class EstadoPlazas {
     private int sotano;
     private int plaza;
 
-    public EstadoPlazas(Long id, boolean libre, Date fecha, int sotano, int plaza) {
-        this.id = id;
-        this.libre = libre;
-        this.fecha = fecha;
-        this.sotano = sotano;
-        this.plaza = plaza;
-    }
-
     public EstadoPlazas() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -68,5 +60,4 @@ public class EstadoPlazas {
     public void setPlaza(int plaza) {
         this.plaza = plaza;
     }
-
 }

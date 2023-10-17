@@ -18,7 +18,7 @@ public class UsuariosServices {
         entityManager.persist(usuario);
     }
 
-    public Usuarios obtenerUsuarioPorId(Long id) {
+    public Usuarios obtenerUsuarioPorId(Integer id) { // Cambio de Long a Integer
         return entityManager.find(Usuarios.class, id);
     }
 
@@ -28,7 +28,7 @@ public class UsuariosServices {
     }
 
     @Transactional
-    public void eliminarUsuario(Long id) {
+    public void eliminarUsuario(Integer id) { // Cambio de Long a Integer
         Usuarios usuario = obtenerUsuarioPorId(id);
         if (usuario != null) {
             entityManager.remove(usuario);
@@ -39,7 +39,3 @@ public class UsuariosServices {
         return entityManager.createQuery("SELECT u FROM Usuarios u", Usuarios.class).getResultList();
     }
 }
-
-
-
-

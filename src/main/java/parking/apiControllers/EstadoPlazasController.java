@@ -25,7 +25,7 @@ public class EstadoPlazasController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EstadoPlazas> obtenerEstadoPlazaPorId(@PathVariable Long id) {
+    public ResponseEntity<EstadoPlazas> obtenerEstadoPlazaPorId(@PathVariable int id) {
         EstadoPlazas estadoPlazas = estadoPlazasServices.obtenerEstadoPlazaPorId(id);
         if (estadoPlazas != null) {
             return new ResponseEntity<>(estadoPlazas, HttpStatus.OK);
@@ -35,7 +35,7 @@ public class EstadoPlazasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> actualizarEstadoPlaza(@PathVariable Long id, @RequestBody EstadoPlazas estadoPlazas) {
+    public ResponseEntity<Void> actualizarEstadoPlaza(@PathVariable int id, @RequestBody EstadoPlazas estadoPlazas) {
         EstadoPlazas existingEstadoPlazas = estadoPlazasServices.obtenerEstadoPlazaPorId(id);
         if (existingEstadoPlazas != null) {
             estadoPlazas.setId(id);
@@ -47,7 +47,7 @@ public class EstadoPlazasController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEstadoPlaza(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarEstadoPlaza(@PathVariable int id) {
         estadoPlazasServices.eliminarEstadoPlaza(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -58,3 +58,4 @@ public class EstadoPlazasController {
         return new ResponseEntity<>(estadoPlazasList, HttpStatus.OK);
     }
 }
+

@@ -23,7 +23,7 @@ public class PlazasController {
     }
 
     @GetMapping("/{id}")
-    public Plazas obtenerPlazaPorId(@PathVariable Long id) {
+    public Plazas obtenerPlazaPorId(@PathVariable Integer id) { // Cambio de Long a Integer
         return plazasServices.obtenerPlazaPorId(id);
     }
 
@@ -33,13 +33,13 @@ public class PlazasController {
     }
 
     @PutMapping("/{id}")
-    public void actualizarPlaza(@PathVariable Long id, @RequestBody Plazas plazaActualizada) {
+    public void actualizarPlaza(@PathVariable Integer id, @RequestBody Plazas plazaActualizada) { // Cambio de Long a Integer
         plazaActualizada.setId(id);
-        plazasServices.actualizarPlaza(plazaActualizada);
+        plazasServices.actualizarPlaza(id, plazaActualizada);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarPlaza(@PathVariable Long id) {
+    public void eliminarPlaza(@PathVariable Integer id) { // Cambio de Long a Integer
         plazasServices.eliminarPlaza(id);
     }
 }

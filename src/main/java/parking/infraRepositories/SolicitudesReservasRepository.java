@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import parking.domain.models.SolicitudesReservas;
 
 @Repository
-public interface SolicitudesReservasRepository extends JpaRepository<SolicitudesReservas, Long> {
-    // Puedes definir consultas personalizadas si es necesario
+public interface SolicitudesReservasRepository extends JpaRepository<SolicitudesReservas, Integer> {
+
 }

@@ -2,7 +2,6 @@ package parking.domain.models;
 
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 @Entity
@@ -10,7 +9,7 @@ import java.util.Date;
 public class SolicitudesReservas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id; // Cambio de Long a Integer
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date fecha;
@@ -21,7 +20,7 @@ public class SolicitudesReservas {
 
     private String estado;
 
-    public SolicitudesReservas(Long id, Date fecha, Usuarios usuario, String estado) {
+    public SolicitudesReservas(Integer id, Date fecha, Usuarios usuario, String estado) {
         this.id = id;
         this.fecha = fecha;
         this.usuario = usuario;
@@ -31,11 +30,11 @@ public class SolicitudesReservas {
     public SolicitudesReservas() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -63,3 +62,4 @@ public class SolicitudesReservas {
         this.estado = estado;
     }
 }
+

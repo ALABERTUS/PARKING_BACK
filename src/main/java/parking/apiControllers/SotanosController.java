@@ -23,7 +23,7 @@ public class SotanosController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Sotanos> obtenerSotanoPorId(@PathVariable Long id) {
+    public ResponseEntity<Sotanos> obtenerSotanoPorId(@PathVariable Integer id) { // Cambio de Long a Integer
         Sotanos sotano = sotanosService.obtenerSotanoPorId(id);
         if (sotano != null) {
             return new ResponseEntity<>(sotano, HttpStatus.OK);
@@ -33,7 +33,7 @@ public class SotanosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> actualizarSotano(@PathVariable Long id, @RequestBody Sotanos sotano) {
+    public ResponseEntity<Void> actualizarSotano(@PathVariable Integer id, @RequestBody Sotanos sotano) { // Cambio de Long a Integer
         Sotanos existingSotano = sotanosService.obtenerSotanoPorId(id);
         if (existingSotano != null) {
             sotano.setId(id);
@@ -45,8 +45,9 @@ public class SotanosController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarSotano(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarSotano(@PathVariable Integer id) { // Cambio de Long a Integer
         sotanosService.eliminarSotano(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
+

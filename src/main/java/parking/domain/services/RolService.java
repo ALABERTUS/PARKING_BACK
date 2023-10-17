@@ -19,7 +19,7 @@ public class RolService {
     }
 
     @Transactional
-    public Rol obtenerRolPorId(Integer id) {
+    public Rol obtenerRolPorId(Integer id) { // Cambio de Long a Integer
         return entityManager.find(Rol.class, id);
     }
 
@@ -29,7 +29,7 @@ public class RolService {
     }
 
     @Transactional
-    public void eliminarRol(Integer id) {
+    public void eliminarRol(Integer id) { // Cambio de Long a Integer
         Rol rol = obtenerRolPorId(id);
         if (rol != null) {
             entityManager.remove(rol);
@@ -38,7 +38,8 @@ public class RolService {
 
     @Transactional
     public List<Rol> obtenerTodosLosRoles() {
-                return entityManager.createQuery("SELECT r FROM Rol r", Rol.class).getResultList();
+        return entityManager.createQuery("SELECT r FROM Rol r", Rol.class).getResultList();
     }
 }
+
 

@@ -4,15 +4,14 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Sotanos")
-
 public class Sotanos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id; // Cambio de Long a Integer
     private int numeroSotano;
     private int numeroPlaza;
 
-    public Sotanos(Long id, int numeroSotano, int numeroPlaza) {
+    public Sotanos(Integer id, int numeroSotano, int numeroPlaza) { // Cambio de Long a Integer
         this.id = id;
         this.numeroSotano = numeroSotano;
         this.numeroPlaza = numeroPlaza;
@@ -21,11 +20,11 @@ public class Sotanos {
     public Sotanos() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,5 +43,4 @@ public class Sotanos {
     public void setNumeroPlaza(int numeroPlaza) {
         this.numeroPlaza = numeroPlaza;
     }
-
 }

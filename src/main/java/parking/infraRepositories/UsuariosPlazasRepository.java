@@ -6,5 +6,4 @@ import parking.domain.models.UsuariosPlazas;
 
 @Repository
 public interface UsuariosPlazasRepository extends JpaRepository<UsuariosPlazas, Integer> {
-    // Puedes definir consultas personalizadas si es necesario
 }

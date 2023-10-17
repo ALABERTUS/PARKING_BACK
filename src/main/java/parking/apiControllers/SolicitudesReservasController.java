@@ -23,7 +23,7 @@ public class SolicitudesReservasController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SolicitudesReservas> obtenerSolicitudReservaPorId(@PathVariable Long id) {
+    public ResponseEntity<SolicitudesReservas> obtenerSolicitudReservaPorId(@PathVariable Integer id) {
         SolicitudesReservas solicitudReserva = solicitudesReservasService.obtenerSolicitudReservaPorId(id);
         if (solicitudReserva != null) {
             return new ResponseEntity<>(solicitudReserva, HttpStatus.OK);
@@ -33,7 +33,7 @@ public class SolicitudesReservasController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> actualizarSolicitudReserva(@PathVariable Long id, @RequestBody SolicitudesReservas solicitudReserva) {
+    public ResponseEntity<Void> actualizarSolicitudReserva(@PathVariable Integer id, @RequestBody SolicitudesReservas solicitudReserva) {
         SolicitudesReservas existingSolicitudReserva = solicitudesReservasService.obtenerSolicitudReservaPorId(id);
         if (existingSolicitudReserva != null) {
             solicitudReserva.setId(id);
@@ -45,9 +45,11 @@ public class SolicitudesReservasController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarSolicitudReserva(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarSolicitudReserva(@PathVariable Integer id) {
         solicitudesReservasService.eliminarSolicitudReserva(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }
+
+
+

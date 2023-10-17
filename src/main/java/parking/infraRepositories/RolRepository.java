@@ -6,5 +6,5 @@ import parking.domain.models.Rol;
 
 @Repository
 public interface RolRepository extends JpaRepository<Rol, Integer> {
-    // Puedes definir consultas personalizadas si es necesario
+
 }

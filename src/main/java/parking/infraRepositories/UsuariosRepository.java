@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import parking.domain.models.Usuarios;
 
 @Repository
-public interface UsuariosRepository extends JpaRepository<Usuarios, Long> {
+public interface UsuariosRepository extends JpaRepository<Usuarios, Integer> {
 
 }

@@ -46,3 +46,4 @@ public class UsuariosPlazasController {
         return usuariosPlazasService.obtenerTodosLosUsuariosPlazas();
     }
 }
+

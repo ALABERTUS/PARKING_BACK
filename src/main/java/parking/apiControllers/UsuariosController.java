@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import parking.domain.models.Usuarios;
 import parking.domain.services.UsuariosServices;
 
-
 import java.util.List;
 
 @RestController
@@ -25,7 +24,7 @@ public class UsuariosController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuarios> obtenerUsuarioPorId(@PathVariable Long id) {
+    public ResponseEntity<Usuarios> obtenerUsuarioPorId(@PathVariable Integer id) {
         Usuarios usuario = usuariosServices.obtenerUsuarioPorId(id);
         if (usuario != null) {
             return new ResponseEntity<>(usuario, HttpStatus.OK);
@@ -35,7 +34,7 @@ public class UsuariosController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> actualizarUsuario(@PathVariable Long id, @RequestBody Usuarios usuarioActualizado) {
+    public ResponseEntity<Void> actualizarUsuario(@PathVariable Integer id, @RequestBody Usuarios usuarioActualizado) {
         Usuarios existingUsuario = usuariosServices.obtenerUsuarioPorId(id);
         if (existingUsuario != null) {
             usuarioActualizado.setId(id);
@@ -47,7 +46,7 @@ public class UsuariosController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarUsuario(@PathVariable Integer id) {
         usuariosServices.eliminarUsuario(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
@@ -58,3 +57,4 @@ public class UsuariosController {
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 }
+
