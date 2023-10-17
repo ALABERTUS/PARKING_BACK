@@ -8,7 +8,7 @@ import parking.domain.services.SotanosServices;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sotanos")
+@RequestMapping("/api/v1/sotanos")
 public class SotanosController {
 
     private final SotanosServices sotanosServices;
