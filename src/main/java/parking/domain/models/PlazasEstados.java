@@ -1,11 +1,9 @@
 package parking.domain.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table (name = "plazas_estados")
 public class PlazasEstados {
     @Id
     @GeneratedValue
