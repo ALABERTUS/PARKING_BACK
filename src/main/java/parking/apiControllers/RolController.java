@@ -8,7 +8,7 @@ import parking.domain.services.RolService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/roles")
+@RequestMapping(path = "/roles")
 public class RolController {
     private final RolService rolService;
 

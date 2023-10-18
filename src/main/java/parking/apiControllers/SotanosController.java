@@ -7,7 +7,7 @@ import parking.domain.models.Sotanos;
 import parking.domain.services.SotanosService;
 
 @RestController
-@RequestMapping("/sotanos")
+@RequestMapping(path = "/sotanos")
 public class SotanosController {
 
     private final SotanosService sotanosService;

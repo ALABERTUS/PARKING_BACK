@@ -9,7 +9,7 @@ import parking.domain.services.UsuariosServices;
 import java.util.List;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping(path = "/usuarios")
 public class UsuariosController {
     private final UsuariosServices usuariosServices;
 

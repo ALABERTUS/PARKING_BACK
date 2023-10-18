@@ -1,4 +1,4 @@
-package parking.CorsConfig;
+package parking.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
