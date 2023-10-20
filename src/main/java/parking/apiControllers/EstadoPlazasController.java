@@ -9,7 +9,7 @@ import parking.domain.services.EstadoPlazasServices;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/estado-plazas")
+@RequestMapping(path="/api/v1/estado-plazas")
 public class EstadoPlazasController {
 
     private final EstadoPlazasServices estadoPlazasServices;

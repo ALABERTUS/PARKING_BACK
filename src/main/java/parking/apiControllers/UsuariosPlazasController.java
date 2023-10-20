@@ -8,7 +8,7 @@ import parking.domain.services.UsuariosPlazasService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/usuariosplazas")
+@RequestMapping(path = "/api/v1/usuariosplazas")
 public class UsuariosPlazasController {
     private final UsuariosPlazasService usuariosPlazasService;
 
