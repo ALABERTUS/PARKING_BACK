@@ -45,8 +45,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers("api/v1/roles").hasAuthority("administrador")
-                                .requestMatchers("api/v1/plazas").hasAnyAuthority("administrador" ,"usuarios")
+                                .requestMatchers("api/v1/plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
                                 .requestMatchers("api/v1/usuarios/**").hasAnyAuthority("administrador" ,"usuarios")
+                                .requestMatchers("api/v1/estado_plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/plazas_estados").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/solicitudes_reservas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/sotanos").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/usuarios_plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+
                                 .anyRequest().authenticated()
 
                 )
