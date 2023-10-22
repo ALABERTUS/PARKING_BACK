@@ -1,12 +1,14 @@
 package parking.domain.services;
 
-import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import parking.domain.models.Sotanos;
+
+import java.util.List;
 
 @Service
 public class SotanosServices {
@@ -16,6 +18,7 @@ public class SotanosServices {
         emf = Persistence.createEntityManagerFactory("parking");
     }
 
+    @Transactional
     public void createSotano(Sotanos sotano) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -33,6 +36,7 @@ public class SotanosServices {
         }
     }
 
+    @Transactional
     public Sotanos getSotanoById(Integer id) {
         EntityManager em = emf.createEntityManager();
         try {
@@ -42,6 +46,7 @@ public class SotanosServices {
         }
     }
 
+    @Transactional
     public List<Sotanos> getAllSotanos() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -52,6 +57,7 @@ public class SotanosServices {
         }
     }
 
+    @Transactional
     public void updateSotano(Sotanos sotano) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -69,6 +75,7 @@ public class SotanosServices {
         }
     }
 
+    @Transactional
     public void deleteSotano(Sotanos sotano) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -89,4 +96,5 @@ public class SotanosServices {
         }
     }
 }
+
 
