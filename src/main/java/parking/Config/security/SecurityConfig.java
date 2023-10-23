@@ -44,7 +44,17 @@ public class SecurityConfig {
                 .cors(withDefaults())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/parking").permitAll()
+                                .requestMatchers("api/v1/roles").hasAuthority("administrador")
+                                .requestMatchers("api/v1/plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/usuarios/**").hasAnyAuthority("administrador" ,"usuarios")
+                                .requestMatchers("api/v1/estado_plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/plazas_estados").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/solicitudes_reservas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/sotanos").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+                                .requestMatchers("api/v1/usuarios_plazas").hasAnyAuthority("administrador" ,"usuarios", "propietario")
+
+                                .anyRequest().authenticated()
+
                 )
                 .oauth2ResourceServer(oauth2ResourceServer ->
                         oauth2ResourceServer
@@ -87,7 +97,7 @@ public class SecurityConfig {
     @Bean
     JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter converter = new JwtGrantedAuthoritiesConverter();
-        converter.setAuthoritiesClaimName("https://eventsAPI/roles");
+        converter.setAuthoritiesClaimName("https://parking/roles");
         converter.setAuthorityPrefix("");
 
         JwtAuthenticationConverter jwtConverter = new JwtAuthenticationConverter();
