@@ -2,8 +2,6 @@ package parking.domain.models;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "usuarios_plazas")
 public class UsuariosPlazas {
@@ -11,18 +9,14 @@ public class UsuariosPlazas {
     @GeneratedValue
     private Integer id;
 
-    @ManyToOne
-    private Usuarios usuario;
-
-    @ManyToOne
-    private Plazas plaza;
-
+    private String usuario;
+    private String plaza;
     private String fecha;
 
     public UsuariosPlazas() {
     }
 
-    public UsuariosPlazas(Usuarios usuario, Plazas plaza, String fecha) {
+    public UsuariosPlazas(String usuario, String plaza, String fecha) {
         this.usuario = usuario;
         this.plaza = plaza;
         this.fecha = fecha;
@@ -36,19 +30,19 @@ public class UsuariosPlazas {
         this.id = id;
     }
 
-    public Usuarios getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuarios usuario) {
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public Plazas getPlaza() {
+    public String getPlaza() {
         return plaza;
     }
 
-    public void setPlaza(Plazas plaza) {
+    public void setPlaza(String plaza) {
         this.plaza = plaza;
     }
 

@@ -12,11 +12,11 @@ public class EstadoPlazas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private boolean libre;
+    private String libre;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date fecha;
-    private int sotano;
-    private int plaza;
+    private String fecha;
+    private String sotano;
+    private String plaza;
 
     public EstadoPlazas() {
     }
@@ -29,35 +29,35 @@ public class EstadoPlazas {
         this.id = id;
     }
 
-    public boolean isLibre() {
+    public String isLibre() {
         return libre;
     }
 
-    public void setLibre(boolean libre) {
+    public void setLibre(String libre) {
         this.libre = libre;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public int getSotano() {
+    public String getSotano() {
         return sotano;
     }
 
-    public void setSotano(int sotano) {
+    public void setSotano(String sotano) {
         this.sotano = sotano;
     }
 
-    public int getPlaza() {
+    public String getPlaza() {
         return plaza;
     }
 
-    public void setPlaza(int plaza) {
+    public void setPlaza(String plaza) {
         this.plaza = plaza;
     }
 }

@@ -22,6 +22,15 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private SotanosRepository sotanosRepository;
 
+    @Autowired
+    private EstadoPlazasRepository estadoPlazasRepository;
+
+    @Autowired
+    private PlazasEstadosRepository plazasEstadosRepository;
+
+    @Autowired
+    private UsuariosPlazasRepository usuariosPlazasRepository;
+
 
 
     @Override
@@ -70,6 +79,34 @@ public class DataInitializer implements CommandLineRunner {
         sotanos.setNumeroSotano("2");
         sotanos.setNumeroPlaza("73");
         sotanosRepository.save(sotanos);
+
+        EstadoPlazas estadoPlazas = new EstadoPlazas();
+        estadoPlazas.setId(1);
+        estadoPlazas.setPlaza("25");
+        estadoPlazas.setFecha("15/02/80");
+        estadoPlazas.setSotano("2");
+        estadoPlazas.setLibre("si");
+        estadoPlazasRepository.save(estadoPlazas);
+
+        PlazasEstados plazasEstados = new PlazasEstados();
+        plazasEstados.setId(1);
+        plazasEstados.setPlaza("25");
+        plazasEstados.setEstado("libre");
+        plazasEstadosRepository.save(plazasEstados);
+
+        UsuariosPlazas usuariosPlazas = new UsuariosPlazas();
+        usuariosPlazas.setId(1);
+        usuariosPlazas.setUsuario("administrador");
+        usuariosPlazas.setPlaza("26");
+        usuariosPlazas.setFecha("16/10/2023");
+        usuariosPlazasRepository.save(usuariosPlazas);
+
+        UsuariosPlazas usuariosPlazas1 = new UsuariosPlazas();
+        usuariosPlazas1.setId(2);
+        usuariosPlazas1.setUsuario("usuario");
+        usuariosPlazas1.setPlaza("75");
+        usuariosPlazas1.setFecha("16/10/2023");
+        usuariosPlazasRepository.save(usuariosPlazas1);
 
 
     }
