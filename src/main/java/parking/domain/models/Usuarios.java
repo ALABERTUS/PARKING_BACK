@@ -16,13 +16,13 @@ public class Usuarios {
     private String nombre;
     private String email;
     private String dni;
-    private Integer telefono;
+    private String telefono; // Cambiado a String
     private String rol;
 
     public Usuarios() {
     }
 
-    public Usuarios(String nombre, String email, String dni, Integer telefono, String rol) {
+    public Usuarios(String nombre, String email, String dni, String telefono, String rol) { // Cambiado a String
         this.nombre = nombre;
         this.email = email;
         this.dni = dni;
@@ -62,11 +62,11 @@ public class Usuarios {
         this.dni = dni;
     }
 
-    public Integer getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Integer telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -85,8 +85,9 @@ public class Usuarios {
                 ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
                 ", dni='" + dni + '\'' +
-                ", telefono=" + telefono +
+                ", telefono='" + telefono + '\'' +
                 ", rol='" + rol + '\'' +
                 '}';
     }
-}
+
+

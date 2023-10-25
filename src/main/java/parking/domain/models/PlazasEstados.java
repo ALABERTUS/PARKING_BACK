@@ -1,7 +1,6 @@
 package parking.domain.models;
 
 import jakarta.persistence.*;
-import parking.domain.models.EstadoPlazas;
 
 @Entity
 @Table(name = "plazas_estados")
@@ -10,16 +9,13 @@ public class PlazasEstados {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    private Plazas plaza;
-
-    @ManyToOne
-    private EstadoPlazas estado;
+    private String plaza;
+    private String estado;
 
     public PlazasEstados() {
     }
 
-    public PlazasEstados(Plazas plaza, EstadoPlazas estado) {
+    public PlazasEstados(String plaza, String estado) {
         this.plaza = plaza;
         this.estado = estado;
     }
@@ -32,20 +28,19 @@ public class PlazasEstados {
         this.id = id;
     }
 
-    public Plazas getPlaza() {
+    public String getPlaza() {
         return plaza;
     }
 
-    public void setPlaza(Plazas plaza) {
+    public void setPlaza(String plaza) {
         this.plaza = plaza;
     }
 
-    public EstadoPlazas getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(EstadoPlazas estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 }
-

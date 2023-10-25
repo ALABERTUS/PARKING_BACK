@@ -1,5 +1,3 @@
-
-
 package parking.domain.models;
 
 import jakarta.persistence.*;
@@ -10,12 +8,12 @@ public class Plazas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private int numeroPlazas;
-    private int sotano;
+    private String numeroPlazas; // Cambiado a String
+    private String sotano; // Cambiado a String
     private boolean disponible;
     private String propietario;
 
-    public Plazas(Integer id, int numeroPlazas, int sotano, boolean disponible, String propietario) {
+    public Plazas(Integer id, String numeroPlazas, String sotano, boolean disponible, String propietario) {
         this.id = id;
         this.numeroPlazas = numeroPlazas;
         this.sotano = sotano;
@@ -34,19 +32,19 @@ public class Plazas {
         this.id = id;
     }
 
-    public int getNumeroPlazas() {
+    public String getNumeroPlazas() {
         return numeroPlazas;
     }
 
-    public void setNumeroPlazas(int numeroPlazas) {
+    public void setNumeroPlazas(String numeroPlazas) {
         this.numeroPlazas = numeroPlazas;
     }
 
-    public int getSotano() {
+    public String getSotano() {
         return sotano;
     }
 
-    public void setSotano(int sotano) {
+    public void setSotano(String sotano) {
         this.sotano = sotano;
     }
 
@@ -66,3 +64,4 @@ public class Plazas {
         this.propietario = propietario;
     }
 }
+

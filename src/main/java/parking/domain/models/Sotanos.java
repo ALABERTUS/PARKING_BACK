@@ -8,10 +8,10 @@ public class Sotanos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private int numeroSotano;
-    private int numeroPlaza;
+    private String numeroSotano;
+    private String numeroPlaza;
 
-    public Sotanos(Integer id, int numeroSotano, int numeroPlaza) {
+    public Sotanos(Integer id, String numeroSotano, String numeroPlaza) {
         this.id = id;
         this.numeroSotano = numeroSotano;
         this.numeroPlaza = numeroPlaza;
@@ -28,19 +28,19 @@ public class Sotanos {
         this.id = id;
     }
 
-    public int getNumeroSotano() {
+    public String getNumeroSotano() {
         return numeroSotano;
     }
 
-    public void setNumeroSotano(int numeroSotano) {
+    public void setNumeroSotano(String numeroSotano) {
         this.numeroSotano = numeroSotano;
     }
 
-    public int getNumeroPlaza() {
+    public String getNumeroPlaza() {
         return numeroPlaza;
     }
 
-    public void setNumeroPlaza(int numeroPlaza) {
+    public void setNumeroPlaza(String numeroPlaza) {
         this.numeroPlaza = numeroPlaza;
     }
 }

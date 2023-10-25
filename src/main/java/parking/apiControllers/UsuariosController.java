@@ -56,5 +56,12 @@ public class UsuariosController {
         List<Usuarios> usuarios = usuariosServices.obtenerTodosLosUsuarios();
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
+    @PostMapping("/todos")
+    public ResponseEntity<List<Usuarios>> crearTodosLosUsuarios() {
+        List<Usuarios> usuarios = usuariosServices.obtenerTodosLosUsuarios();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    }
+
 }
+
 
