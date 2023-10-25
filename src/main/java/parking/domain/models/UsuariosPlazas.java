@@ -17,12 +17,12 @@ public class UsuariosPlazas {
     @ManyToOne
     private Plazas plaza;
 
-    private Date fecha;
+    private String fecha;
 
     public UsuariosPlazas() {
     }
 
-    public UsuariosPlazas(Usuarios usuario, Plazas plaza, Date fecha) {
+    public UsuariosPlazas(Usuarios usuario, Plazas plaza, String fecha) {
         this.usuario = usuario;
         this.plaza = plaza;
         this.fecha = fecha;
@@ -52,11 +52,11 @@ public class UsuariosPlazas {
         this.plaza = plaza;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 }

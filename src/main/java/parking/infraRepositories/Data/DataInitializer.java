@@ -1,16 +1,10 @@
 package parking.infraRepositories.Data;
 
-import parking.domain.models.Plazas;
-import parking.domain.models.Rol;
-import parking.domain.models.SolicitudesReservas;
-import parking.domain.models.Usuarios;
-import parking.infraRepositories.PlazasRepository;
-import parking.infraRepositories.RolRepository;
+import parking.domain.models.*;
+import parking.infraRepositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import parking.infraRepositories.SolicitudesReservasRepository;
-import parking.infraRepositories.UsuariosRepository;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -25,19 +19,35 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private SolicitudesReservasRepository solicitudesReservasRepository;
 
+    @Autowired
+    private SotanosRepository sotanosRepository;
+
+
+
     @Override
     public void run(String... args) throws Exception {
         Rol rol = new Rol();
-        rol.setId(1); // Cambiado a un número si id es numérico
+        rol.setId(1);
         rol.setNombreRol("Administrador");
         rolRepository.save(rol);
+
+        Rol rol1 = new Rol();
+        rol1.setId(2);
+        rol1.setNombreRol("Solicitante");
+        rolRepository.save(rol1);
+
+        Rol rol2 = new Rol();
+        rol2.setId(3);
+        rol2.setNombreRol("Propietario");
+        rolRepository.save(rol2);
+
 
         Plazas plazas = new Plazas();
         plazas.setId(1);
         plazas.setNumeroPlazas("75");
         plazas.setSotano("1");
         plazas.setDisponible(true);
-        plazas.setPropietario("si");
+        plazas.setPropietario("Juan valdes");
         plazasRepository.save(plazas);
 
         Usuarios usuarios = new Usuarios();
@@ -54,6 +64,12 @@ public class DataInitializer implements CommandLineRunner {
         solicitudesReservas.setFecha("15/02/80 ");
         solicitudesReservas.setEstado("ocupada");
         solicitudesReservasRepository.save(solicitudesReservas);
+
+        Sotanos sotanos = new Sotanos();
+        sotanos.setId(1);
+        sotanos.setNumeroSotano("2");
+        sotanos.setNumeroPlaza("73");
+        sotanosRepository.save(sotanos);
 
 
     }
