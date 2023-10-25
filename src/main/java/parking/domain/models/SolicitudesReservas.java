@@ -2,7 +2,6 @@ package parking.domain.models;
 
 import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
-import java.util.Date;
 
 @Entity
 @Table(name = "SolicitudesReservas")
@@ -12,18 +11,18 @@ public class SolicitudesReservas {
     private Integer id;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date fecha;
+    private String fecha;
 
     @OneToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuarios usuario;
+    @JoinColumn(name = "usuarios_id")
+    private Usuarios usuarios;
 
     private String estado;
 
-    public SolicitudesReservas(Integer id, Date fecha, Usuarios usuario, String estado) {
+    public SolicitudesReservas(Integer id, String fecha, Usuarios usuario, String estado) {
         this.id = id;
         this.fecha = fecha;
-        this.usuario = usuario;
+        this.usuarios = usuario;
         this.estado = estado;
     }
 
@@ -38,21 +37,22 @@ public class SolicitudesReservas {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Usuarios getUsuario() {
-        return usuario;
+    public Usuarios getUsuarios() {
+        return usuarios;
     }
 
-    public void setUsuario(Usuarios usuario) {
-        this.usuario = usuario;
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
     }
+
 
     public String getEstado() {
         return estado;
